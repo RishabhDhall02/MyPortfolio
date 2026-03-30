@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireProject>true</IsAspireProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="**" Exclude="bin\**;obj\**;node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Portfolio.ServiceDefaults\Portfolio.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

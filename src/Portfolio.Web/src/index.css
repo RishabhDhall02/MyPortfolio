@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap');
+
+:root {
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'General Sans', sans-serif;
+  
+  --bg-color: #0c0e12;
+  --surface: #161a21;
+  --border: #232932;
+  
+  --accent: #e11d48; /* Rose Red/Maroon */
+  --accent-muted: rgba(225, 29, 72, 0.1);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+section {
+  padding: 8rem 0;
+}
+
+/* Authentic Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.col-6 { grid-column: span 6; }
+.col-8 { grid-column: span 8; }
+.col-4 { grid-column: span 4; }
+
+.accent-text {
+  color: var(--accent);
+}
+
+.brutalist-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.brutalist-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(225, 29, 72, 0.12);
+}
+
+button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 1rem 2.4rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #be123c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.25);
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+  letter-spacing: 0.04em;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.source-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.45rem 1rem;
+  text-decoration: none;
+  transition: var(--transition);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.source-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-muted);
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 1024px) {
+  .container { padding: 0 2rem; }
+  .grid-layout { display: flex; flex-direction: column; }
+}

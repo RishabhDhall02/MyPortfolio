@@ -1,0 +1,30 @@
+# Secrets
+.env
+*.user
+*.suo
+
+# .NET
+bin/
+obj/
+publish/
+.vs/
+.vscode/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Aspire
+.aspire/
+
+# OS
+.DS_Store
+Thumbs.db

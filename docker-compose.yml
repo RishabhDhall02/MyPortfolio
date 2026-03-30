@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  portfolio-api:
+    build:
+      context: .
+      dockerfile: src/Portfolio.Api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__portfolio-db=${SUPABASE_CONNECTION_STRING}
+    ports:
+      - "5000:8080"
+    depends_on:
+      - portfolio-db
+
+  portfolio-scraper:
+    build:
+      context: .
+      dockerfile: src/Portfolio.Scraper/Dockerfile
+    environment:
+      - ConnectionStrings__portfolio-db=${SUPABASE_CONNECTION_STRING}
+    depends_on:
+      - portfolio-db
+
+  portfolio-web:
+    build:
+      context: src/Portfolio.Web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - portfolio-api
+
+  # Note: For real Supabase, this would be an external reference.
+  # But for a full local demo, we can include a Postgres container as a fallback.
+  portfolio-db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=portfolio
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./infra/sql/seed.sql:/docker-entrypoint-initdb.d/seed.sql
+
+volumes:
+  db-data:
