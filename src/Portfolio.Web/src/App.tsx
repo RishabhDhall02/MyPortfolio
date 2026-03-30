@@ -304,40 +304,29 @@ const App = () => {
                 { name: 'React', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg' },
                 { name: 'Node.js', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg' },
               ].map(tech => (
-                <div key={tech.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.6rem' }}>
-                  <div 
+                <div key={tech.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem' }}>
+                  <img 
+                    src={tech.url} 
+                    alt={tech.name} 
+                    width="32" 
+                    height="32" 
                     style={{ 
-                      width: '42px', 
-                      height: '42px', 
-                      backgroundColor: '#e11d48', // Exact matched crimson for social icons
-                      borderRadius: '10px', 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center',
+                      filter: 'brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(2283%) hue-rotate(338deg) brightness(102%) contrast(101%)',
                       transition: 'all 0.2s ease-out',
                       cursor: 'default'
-                    }}
+                    }} 
                     onMouseEnter={e => {
-                      e.currentTarget.style.transform = 'translateY(-4px) scale(1.05)';
-                      e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(225, 29, 72, 0.3)';
+                      const img = e.target as HTMLImageElement;
+                      img.style.transform = 'translateY(-2px) scale(1.1)';
+                      img.style.filter = 'brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(3000%) hue-rotate(338deg) brightness(120%) contrast(110%)';
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                      e.currentTarget.style.boxShadow = 'none';
+                      const img = e.target as HTMLImageElement;
+                      img.style.transform = 'translateY(0) scale(1)';
+                      img.style.filter = 'brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(2283%) hue-rotate(338deg) brightness(102%) contrast(101%)';
                     }}
-                  >
-                    <img 
-                      src={tech.url} 
-                      alt={tech.name} 
-                      width="24" 
-                      height="24" 
-                      style={{ 
-                        filter: 'brightness(0)', // Solid black symbol
-                        opacity: 0.9
-                      }} 
-                    />
-                  </div>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.12em' }}>{tech.name}</span>
+                  />
+                  <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>{tech.name}</span>
                 </div>
               ))}
             </div>
