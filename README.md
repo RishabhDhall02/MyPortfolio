@@ -8,7 +8,7 @@ A full-stack personal portfolio application built with **React (Vite), .NET 9 AP
 - **Database**: Supabase (PostgreSQL)
 - **Data Synchronization**: C# Worker Service with HtmlAgilityPack and GitHub API
 
-## 🚀 Quick Setup (local)
+## Quick Setup (local)
 
 1.  **Environment Settings**:
     Ensure you have a `.env` file in the root directory (where the `.sln` file is) containing your authenticated Supabase connection string and GitHub token:
@@ -35,7 +35,7 @@ A full-stack personal portfolio application built with **React (Vite), .NET 9 AP
 
 ---
 
-## 🛑 How to Shut Off Local Host
+## How to Shut Off Local Host
 
 If you encounter port conflicts or want to stop the local servers completely:
 1.  **API**: Focus the API terminal and press `Ctrl+C`.
@@ -48,7 +48,7 @@ If you encounter port conflicts or want to stop the local servers completely:
 
 ---
 
-## 🛠️ Synching GitHub Projects (The Scraper)
+## Synching GitHub Projects (The Scraper)
 
 We built an intelligent scraper that automatically clones your specific GitHub pinned layout and repositories. If you push new code to GitHub and want it reflected on your portfolio, simply run the scraper background service:
 
