@@ -299,8 +299,8 @@ const App = () => {
             <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
               {[
                 { name: 'Python', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg' },
-                { name: 'JavaScript', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg' },
-                { name: 'TypeScript', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg' },
+                { name: 'JavaScript', url: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/javascript.svg' },
+                { name: 'TypeScript', url: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/typescript.svg' },
                 { name: 'React', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg' },
                 { name: 'Node.js', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg' },
               ].map(tech => (
