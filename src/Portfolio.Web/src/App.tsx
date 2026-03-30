@@ -298,36 +298,64 @@ const App = () => {
             </p>
             <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
               {[
-                { name: 'Python', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg' },
-                { name: 'JavaScript', url: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/javascript.svg' },
-                { name: 'TypeScript', url: 'https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/typescript.svg' },
-                { name: 'React', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg' },
-                { name: 'Node.js', url: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg' },
+                { name: 'Python', icon: 'simple-icons:python', isBox: false },
+                { name: 'JavaScript', icon: 'simple-icons:javascript', isBox: false },
+                { name: 'TypeScript', icon: 'simple-icons:typescript', isBox: false },
+                { name: 'React', icon: 'simple-icons:react', isBox: false },
+                { name: 'Node.js', icon: 'simple-icons:nodedotjs', isBox: false },
               ].map(tech => (
-                <div key={tech.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem' }}>
-                  <img 
-                    src={tech.url} 
-                    alt={tech.name} 
-                    width="32" 
-                    height="32" 
-                    style={{ 
-                      filter: 'brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(2283%) hue-rotate(338deg) brightness(102%) contrast(101%)',
-                      transition: 'all 0.2s ease-out',
-                      cursor: 'default'
-                    }} 
-                    onMouseEnter={e => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.transform = 'translateY(-2px) scale(1.1)';
-                      img.style.filter = 'brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(3000%) hue-rotate(338deg) brightness(120%) contrast(110%)';
-                    }}
-                    onMouseLeave={e => {
-                      const img = e.target as HTMLImageElement;
-                      img.style.transform = 'translateY(0) scale(1)';
-                      img.style.filter = 'brightness(0) saturate(100%) invert(31%) sepia(91%) saturate(2283%) hue-rotate(338deg) brightness(102%) contrast(101%)';
-                    }}
-                  />
+                <motion.div 
+                  key={tech.name} 
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.8rem', cursor: 'pointer' }}
+                  initial={{ opacity: 1, y: 0 }}
+                  whileHover={{ 
+                    y: -8,
+                    scale: 1.05,
+                    transition: { duration: 0.2, ease: 'easeOut' }
+                  }}
+                >
+                  {tech.isBox ? (
+                    <div 
+                      style={{ 
+                        width: '32px', 
+                        height: '32px', 
+                        backgroundColor: '#e11d48',
+                        borderRadius: '8px', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        overflow: 'hidden',
+                        border: 'none',
+                        outline: 'none',
+                        boxShadow: 'none'
+                      }}
+                    >
+                      <img 
+                        src={`https://api.iconify.design/${tech.icon}.svg?color=%230c0e12`} 
+                        alt={tech.name} 
+                        style={{ 
+                          width: '100%',
+                          height: '100%',
+                          display: 'block'
+                        }} 
+                      />
+                    </div>
+                  ) : (
+                    <img 
+                      src={`https://api.iconify.design/${tech.icon}.svg?color=%23e11d48`} 
+                      alt={tech.name} 
+                      width="32" 
+                      height="32" 
+                      style={{ 
+                        borderRadius: '8px',
+                        border: 'none',
+                        outline: 'none',
+                        boxShadow: 'none'
+                      }} 
+                    />
+                  )}
                   <span style={{ fontSize: '0.7rem', fontWeight: 800, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>{tech.name}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
