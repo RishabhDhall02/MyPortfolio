@@ -1,6 +1,6 @@
 # Portfolio Application
 
-A full-stack personal portfolio application built with **React (Vite), .NET 9 API, and Supabase**. It features an automated GitHub repository synchronization system, a robust Dapper-backed API, and a premium "industrial brutalist" dark-mode UI.
+A full-stack personal portfolio application built with **React (Vite), .NET 9 API, and Supabase**. It features an automated GitHub repository synchronization system and a robust Dapper-backed API.
 
 ## Tech Stack
 - **Frontend**: React 18, TypeScript, Vite, Framer Motion
@@ -50,12 +50,10 @@ If you encounter port conflicts or want to stop the local servers completely:
 
 ## Synching GitHub Projects (The Scraper)
 
-We built an intelligent scraper that automatically clones your specific GitHub pinned layout and repositories. If you push new code to GitHub and want it reflected on your portfolio, simply run the scraper background service:
+To reflect new code I push to github on my portfolio website, I run:
 
 ```powershell
 # Open a new terminal:
 cd src/Portfolio.Scraper
 dotnet run
 ```
-It will ingest the `.env` configuration, traverse the GitHub API using your token to avoid rate limits, update Supabase, and shut down. Your site will instantly reflect the updates.
-

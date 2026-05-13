@@ -34,7 +34,7 @@ public class ScraperWorker(ILogger<ScraperWorker> logger, IConfiguration configu
                 logger.LogError(ex, "Error during scraping");
             }
 
-            // Scrape once every 24 hours
+    
             await Task.Delay(TimeSpan.FromHours(24), stoppingToken);
         }
     }
@@ -43,27 +43,27 @@ public class ScraperWorker(ILogger<ScraperWorker> logger, IConfiguration configu
     {
         logger.LogInformation("Scraping GitHub for user: {username}", _githubUsername);
 
-        // 1. Fetch repos from API
+
         var repoResponse = await _httpClient.GetAsync($"https://api.github.com/users/{_githubUsername}/repos?sort=updated");
         repoResponse.EnsureSuccessStatusCode();
         var repoJson = await repoResponse.Content.ReadAsStringAsync();
         var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower };
         var repos = JsonSerializer.Deserialize<List<GitHubRepo>>(repoJson, options) ?? [];
 
-        // 2. Fetch profile from API (for avatar, bio)
+
         var userResponse = await _httpClient.GetAsync($"https://api.github.com/users/{_githubUsername}");
         userResponse.EnsureSuccessStatusCode();
         var userJson = await userResponse.Content.ReadAsStringAsync();
         var user = JsonSerializer.Deserialize<GitHubUser>(userJson, options);
 
-        // 3. Scrape pinned repos from HTML (since API doesn't distinguish them easily)
+
         var pinnedRepos = await GetPinnedReposAsync();
 
-        // 4. Update Database
+
         await using var conn = new NpgsqlConnection(_connectionString);
         await conn.OpenAsync();
 
-        // Update About
+
         if (user != null)
         {
             await using var cmdAbout = new NpgsqlCommand(@"
@@ -83,7 +83,7 @@ public class ScraperWorker(ILogger<ScraperWorker> logger, IConfiguration configu
             await cmdAbout.ExecuteNonQueryAsync();
         }
 
-        // Update Projects
+
         foreach (var repo in repos)
         {
             await using var cmdProj = new NpgsqlCommand(@"

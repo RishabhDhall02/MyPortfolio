@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-// External Supabase PostgreSQL connection
+
 var db = builder.AddConnectionString("portfolio-db");
 
 var api = builder.AddProject<Projects.Portfolio_Api>("portfolio-api")

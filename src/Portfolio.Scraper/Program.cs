@@ -3,7 +3,7 @@ using Portfolio.Scraper;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-// Find and load .env from root or project dir
+
 var envPath = File.Exists(".env") ? ".env" : 
              File.Exists("../../.env") ? "../../.env" : 
              File.Exists("../../../.env") ? "../../../.env" : null;
@@ -11,7 +11,7 @@ var envPath = File.Exists(".env") ? ".env" :
 if (envPath != null) 
 {
     DotNetEnv.Env.Load(envPath);
-    // Forcefully set the environment variable from the loaded .env
+
     var envValue = DotNetEnv.Env.GetString("SUPABASE_CONNECTION_STRING");
     if (!string.IsNullOrEmpty(envValue))
     {
@@ -27,7 +27,7 @@ if (envPath != null)
 
 var builder = Host.CreateApplicationBuilder(args);
 
-// Ensure the connection string is available in configuration
+
 var connectionString = Environment.GetEnvironmentVariable("SUPABASE_CONNECTION_STRING");
 if (!string.IsNullOrEmpty(connectionString))
 {

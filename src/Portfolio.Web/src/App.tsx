@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import axios from 'axios';
 
-// --- Types ---
+
 interface Project {
   id: number;
   name: string;
@@ -37,13 +37,13 @@ interface About {
   avatarUrl: string;
 }
 
-// --- Helpers ---
+
 const monthYear = (dateStr: string) => {
   const d = new Date(dateStr);
   return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 };
 
-// --- Components ---
+
 
 const InteractiveCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -163,7 +163,7 @@ const Hero = ({ about }: { about: About }) => (
           </p>
           <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
             <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
-              Explore Work
+              Explore
             </button>
             <div style={{ display: 'flex', gap: '1.5rem' }}>
               <motion.a 
@@ -232,18 +232,18 @@ const ProjectCard = ({ project, isHighlight }: { project: Project, isHighlight?:
 
 const App = () => {
   const [projects, setProjects] = useState<Project[]>([
-    { id: 1, name: "Task Automation Core", description: "Multi-threaded task orchestrator built with .NET 9 and PostgreSQL.", url: "#", language: "C#", stars: 12, forks: 4, topics: ["system", "backend"], isPinned: true },
-    { id: 2, name: "Market Data Scraper", description: "Asynchronous scraper utilizing HtmlAgilityPack to sync real-time market data.", url: "#", language: "C#", stars: 8, forks: 2, topics: ["data", "scraping"], isPinned: true },
-    { id: 3, name: "Industrial Dashboard", description: "High-contrast monitoring dashboard with Space Grotesk typography.", url: "#", language: "TypeScript", stars: 24, forks: 6, topics: ["react", "frontend"], isPinned: false }
+    { id: 1, name: "Project 1", description: "Description 1", url: "#", language: "C#", stars: 12, forks: 4, topics: ["system", "backend"], isPinned: true },
+    { id: 2, name: "Project 2", description: "Description 2", url: "#", language: "C#", stars: 8, forks: 2, topics: ["data", "scraping"], isPinned: true },
+    { id: 3, name: "Project 3", description: "Description 3", url: "#", language: "TypeScript", stars: 24, forks: 6, topics: ["react", "frontend"], isPinned: false }
   ]);
 
   const [experience, setExperience] = useState<Experience[]>([
-    { id: 1, company: "Modern Systems", role: "Software Engineer", location: "Remote", startDate: "2023-01-01", endDate: null, description: "Architecting cloud-native solutions and scalable microservices.", technologies: [".NET", "React", "Docker"] },
-    { id: 2, company: "Core Dev Group", role: "Developer", location: "Global", startDate: "2021-06-01", endDate: "2022-12-31", description: "Focused on API design and backend performance optimization.", technologies: ["ASP.NET", "SQL"] }
+    { id: 1, company: "Company 1", role: "Experience 1", location: "Remote", startDate: "2023-01-01", endDate: null, description: "Description 1", technologies: [".NET", "React", "Docker"] },
+    { id: 2, company: "Company 2", role: "Experience 2", location: "Global", startDate: "2021-06-01", endDate: "2022-12-31", description: "Description 2", technologies: ["ASP.NET", "SQL"] }
   ]);
   const [about, setAbout] = useState<About>({
-    headline: 'Building high-performance, scalable web systems with a focus on precision and impact.',
-    bio: "Specializing in crafting robust full-stack applications using React, TypeScript, and .NET. I focus on building distributed backends, AI-powered tools, and high-utility interfaces that deliver real-world value.",
+    headline: '4th Year CS Student @ McMaster University',
+    bio: "Full Stack Developer \ Scalable Data Pipelines \ Software Solutions",
     location: 'Ontario, Canada',
     githubUrl: 'https://github.com/RishabhDhall02',
     linkedinUrl: 'https://linkedin.com/in/rishabhdhall',

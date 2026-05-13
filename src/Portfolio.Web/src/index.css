@@ -9,7 +9,7 @@
   --surface: #161a21;
   --border: #232932;
   
-  --accent: #e11d48; /* Rose Red/Maroon */
+  --accent: #e11d48;
   --accent-muted: rgba(225, 29, 72, 0.1);
   --text-primary: #e2e8f0;
   --text-secondary: #94a3b8;
@@ -56,7 +56,7 @@ section {
   padding: 8rem 0;
 }
 
-/* Authentic Grid Layout */
+
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(12, 1fr);

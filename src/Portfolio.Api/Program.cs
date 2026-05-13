@@ -6,10 +6,10 @@ using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Enable underscore-to-camelCase mapping for Dapper
+
 DefaultTypeMap.MatchNamesWithUnderscores = true;
 
-// Find and load .env from root or project dir
+
 var envPath = File.Exists(".env") ? ".env" : 
              File.Exists("../../.env") ? "../../.env" : 
              File.Exists("../../../.env") ? "../../../.env" : null;
@@ -17,7 +17,7 @@ var envPath = File.Exists(".env") ? ".env" :
 if (envPath != null) 
 {
     DotNetEnv.Env.Load(envPath);
-    // Forcefully set the environment variable from the loaded .env
+
     var envValue = DotNetEnv.Env.GetString("SUPABASE_CONNECTION_STRING");
     if (!string.IsNullOrEmpty(envValue))
     {
@@ -26,22 +26,22 @@ if (envPath != null)
     Console.WriteLine($"Loaded .env from: {Path.GetFullPath(envPath)}");
 }
 
-// Use the connection string from env if available
+
 var connectionString = Environment.GetEnvironmentVariable("SUPABASE_CONNECTION_STRING") ?? 
                       builder.Configuration.GetConnectionString("portfolio-db");
 
 if (!string.IsNullOrEmpty(connectionString))
 {
-    // Strip quotes if they exist
+
     connectionString = connectionString.Trim('"');
     Console.WriteLine($"Using connection string: {connectionString.Substring(0, 10)}...");
     builder.Configuration["ConnectionStrings:portfolio-db"] = connectionString;
 }
 
-// Add service defaults
+
 builder.AddServiceDefaults();
 
-// EF context still registered for other components if needed
+
 builder.Services.AddDbContext<PortfolioDbContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -81,7 +81,7 @@ api.MapGet("/about", async (IConfiguration config) => {
     }
 });
 
-// Support both singular and plural routes
+
 async Task<IResult> GetProjects(IConfiguration config) {
     try {
         using var conn = new NpgsqlConnection(config.GetConnectionString("portfolio-db"));

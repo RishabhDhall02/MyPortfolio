@@ -19,7 +19,7 @@ public class PortfolioDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         
-        // Additional configuration if needed
+
         modelBuilder.Entity<Project>(entity => {
             entity.ToTable("projects");
             entity.Property(e => e.Id).HasColumnName("id");
