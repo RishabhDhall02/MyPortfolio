@@ -1,4 +1,4 @@
-# Portfolio Application
+# My Portfolio
 
 A full-stack architecture utilizing a React frontend and a headless .NET 9 Minimal API. The system implements a secure data pipeline to sync GitHub metadata into a Supabase instance, served via a high-performance Dapper data layer.
 
