@@ -13,5 +13,5 @@ A full-stack architecture utilizing a React frontend and a headless .NET 9 Minim
 - **Automated GitHub Synchronization**: A custom C# worker service utilizing HtmlAgilityPack for targeted scraping and the GitHub API to periodically sync and update repository metadata.
 - **Decoupled Architecture**: Features a high-performance separation between a React 18 frontend (built with Vite) and a headless ASP.NET Core 9 backend to ensure independent scalability and a clean separation of concerns.
 - **Type-Safe Development**: Leverages TypeScript across the frontend to enforce robust component logic and interface consistency, ensuring seamless data contracts with the backend.
-- **Optimized Data Access**: Employs Dapper and Npgsql for fast, lightweight server-side mapping to a Supabase (PostgreSQL) database.
+- **Optimized Data Access**: Employs Dapper and Npgsql for high-performance, lightweight server-side mapping to a Supabase (PostgreSQL) database, ensuring low-latency retrieval of project and experience data.
 - **Production-Grade Security**: Sensitive database credentials and connection strings are managed via Azure Environment Variables, ensuring zero client-side exposure of secrets.
