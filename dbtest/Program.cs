@@ -4,7 +4,7 @@ using Dapper;
 
 class Program {
     static void Main() {
-        string conn = "Host=aws-1-ca-central-1.pooler.supabase.com;Port=5432;Database=postgres;Username=postgres.krhfbyaugwoncpuuzkvj;Password=DOH3Kl8UcnVQHeuO;SSL Mode=Require;Include Error Detail=true;";
+        string conn = "string";
         using var c = new NpgsqlConnection(conn);
         c.Open();
         
