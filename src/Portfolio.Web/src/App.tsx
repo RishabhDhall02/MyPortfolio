@@ -541,98 +541,52 @@ const App = () => {
             <div
               style={{
                 display: "flex",
-                gap: "2.5rem",
+                gap: "0.85rem",
                 alignItems: "center",
                 flexWrap: "wrap",
               }}
             >
               {[
-                { name: "Python", icon: "simple-icons:python", isBox: false },
-                {
-                  name: "JavaScript",
-                  icon: "simple-icons:javascript",
-                  isBox: false,
-                },
-                {
-                  name: "TypeScript",
-                  icon: "simple-icons:typescript",
-                  isBox: false,
-                },
-                { name: "React", icon: "simple-icons:react", isBox: false },
-                {
-                  name: "Node.js",
-                  icon: "simple-icons:nodedotjs",
-                  isBox: false,
-                },
+                "Python",
+                "JavaScript",
+                "TypeScript",
+                "React",
+                "Node.js",
               ].map((tech) => (
-                <motion.div
-                  key={tech.name}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    gap: "0.8rem",
-                    cursor: "pointer",
-                  }}
-                  initial={{ opacity: 1, y: 0 }}
+                <motion.span
+                  key={tech}
                   whileHover={{
-                    y: -8,
-                    scale: 1.05,
-                    transition: { duration: 0.2, ease: "easeOut" },
+                    y: -3,
+                    borderColor: "var(--accent)",
+                    color: "var(--accent)",
+                  }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "0.55rem 1.1rem",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "8px",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    color: "var(--text-primary)",
+                    cursor: "default",
                   }}
                 >
-                  {tech.isBox ? (
-                    <div
-                      style={{
-                        width: "32px",
-                        height: "32px",
-                        backgroundColor: "#e11d48",
-                        borderRadius: "8px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        overflow: "hidden",
-                        border: "none",
-                        outline: "none",
-                        boxShadow: "none",
-                      }}
-                    >
-                      <img
-                        src={`https://api.iconify.design/${tech.icon}.svg?color=%230c0e12`}
-                        alt={tech.name}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          display: "block",
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <img
-                      src={`https://api.iconify.design/${tech.icon}.svg?color=%23e11d48`}
-                      alt={tech.name}
-                      width="32"
-                      height="32"
-                      style={{
-                        borderRadius: "8px",
-                        border: "none",
-                        outline: "none",
-                        boxShadow: "none",
-                      }}
-                    />
-                  )}
                   <span
                     style={{
-                      fontSize: "0.7rem",
-                      fontWeight: 800,
-                      color: "var(--text-secondary)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.15em",
+                      width: "6px",
+                      height: "6px",
+                      borderRadius: "50%",
+                      backgroundColor: "var(--accent)",
+                      marginRight: "0.6rem",
                     }}
-                  >
-                    {tech.name}
-                  </span>
-                </motion.div>
+                  />
+                  {tech}
+                </motion.span>
               ))}
             </div>
           </div>
